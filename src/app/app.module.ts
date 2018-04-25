@@ -8,7 +8,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { Camera } from '@ionic-native/camera';
-import { VisualRecognitionServiceProvider } from '../providers/visual-recognition-service/visual-recognition-service';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,10 @@ import { VisualRecognitionServiceProvider } from '../providers/visual-recognitio
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VisualRecognitionServiceProvider
+    Camera,
+    FileTransfer,
+    File
   ]
 })
 export class AppModule {}
