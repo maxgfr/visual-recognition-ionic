@@ -7,6 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { Camera } from '@ionic-native/camera';
+import { VisualRecognitionServiceProvider } from '../providers/visual-recognition-service/visual-recognition-service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +27,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Camera,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    VisualRecognitionServiceProvider
   ]
 })
 export class AppModule {}
