@@ -23,7 +23,7 @@
 ## Application :
 
 <div align="center">
-  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen1.png" height="540" width="300"/>
-  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen2.png" height="540" width="300"/>
-  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen3.png" height="540" width="300"/>
+  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen1.png" height="540" width="280"/>
+  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen2.png" height="540" width="280"/>
+  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen3.png" height="540" width="280"/>
 </div>
