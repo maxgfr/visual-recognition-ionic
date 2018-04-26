@@ -6,11 +6,7 @@
 
 3. The Ionic Application displays to the user the confidence and the class of the image from the previous JSON Response.
 
-## Global Architecture
-
-![alt text](https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen4.png)
-
-### Run project
+## Run the project
 
 ```
     npm install -g ionic cordova
@@ -20,10 +16,14 @@
     ionic emulate ios
 ```
 
+## Global Architecture
+
+![alt text](https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen4.png)
+
 ## Application :
 
 <div align="center">
-  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen1.png" height="540"/>
-  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen2.png" height="540"/>
-  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen3.png" height="540"/>
+  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen1.png" height="540" width="200"/>
+  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen2.png" height="540" width="200"/>
+  <img src="https://github.com/maxgfr/visual-recognition-ionic/blob/master/screen/screen3.png" height="540" width="200"/>
 </div>
