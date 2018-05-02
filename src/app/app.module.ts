@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { FileChooser } from '@ionic-native/file-chooser';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { File } from '@ionic-native/file';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
     FileTransfer,
-    File
+    File,
+    FileChooser
   ]
 })
 export class AppModule {}

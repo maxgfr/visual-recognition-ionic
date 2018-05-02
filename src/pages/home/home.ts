@@ -20,6 +20,26 @@ export class HomePage {
         public alert: AlertController) {}
 
 
+        getImage() {
+            const options: CameraOptions = {
+                quality: 100,
+                targetHeight: 500,
+                targetWidth: 500,
+                destinationType: this.camera.DestinationType.DATA_URL,
+                sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+                encodingType: this.camera.EncodingType.PNG,
+                mediaType: this.camera.MediaType.PICTURE
+            }
+
+            this.camera.getPicture(options).then((imageData) => {
+                this.uploadImage(imageData);
+            }, (err) => {
+                console.log(err);
+                this.presentToast(err);
+            });
+        }
+
+
         takePhoto() {
             const options: CameraOptions = {
                 quality: 100,
@@ -31,41 +51,46 @@ export class HomePage {
             }
 
             this.camera.getPicture(options).then((imageData) => {
+                this.uploadImage(imageData);
 
-                this.base64Image = 'data:image/png;base64,' + imageData;
-
-                console.log(imageData);
-
-                let loader = this.loadingCtrl.create({
-                    content: "Uploading..."
-                });
-                loader.present();
-
-                const fileTransfer: FileTransferObject = this.transfer.create();
-
-                let options: FileUploadOptions = {
-                    fileKey: 'image',
-                    fileName: 'image',
-                    chunkedMode: false,
-                    mimeType: "image/jpeg",
-                    headers: {}
-                }
-
-                fileTransfer.upload('data:image/png;base64,'+imageData, 'https://visual-recogntion.eu-gb.mybluemix.net/api/upload', options)
-                .then((data) => {
-                    console.log(data);
-                    var json = JSON.parse(data.response);
-                    console.log(json);
-                    loader.dismiss();
-                    this.presentToast("Image uploaded successfully");
-                    this.showAlert(json.images[0].classifiers[0].classes[0].class+" with score of : "+ json.images[0].classifiers[0].classes[0].score);
-                }, (err) => {
-                    console.log(err);
-                    loader.dismiss();
-                    this.presentToast(err);
-                });
             }, err => {
                 this.showAlert(err);
+            });
+        }
+
+
+        uploadImage (imageData) {
+            this.base64Image = 'data:image/png;base64,' + imageData;
+
+            console.log(imageData);
+
+            let loader = this.loadingCtrl.create({
+                content: "Uploading..."
+            });
+            loader.present();
+
+            const fileTransfer: FileTransferObject = this.transfer.create();
+
+            let options: FileUploadOptions = {
+                fileKey: 'image',
+                fileName: 'image',
+                chunkedMode: false,
+                mimeType: "image/jpeg",
+                headers: {}
+            }
+
+            fileTransfer.upload('data:image/png;base64,'+imageData, 'https://visual-recogntion.eu-gb.mybluemix.net/api/upload', options)
+            .then((data) => {
+                console.log(data);
+                var json = JSON.parse(data.response);
+                console.log(json);
+                loader.dismiss();
+                this.presentToast("Image uploaded successfully");
+                this.showAlert(json.images[0].classifiers[0].classes[0].class+" with score of : "+ json.images[0].classifiers[0].classes[0].score);
+            }, (err) => {
+                console.log(err);
+                loader.dismiss();
+                this.presentToast(err);
             });
         }
 

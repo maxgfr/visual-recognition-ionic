@@ -5,8 +5,9 @@
 </ion-header>
 
 <ion-content padding>
+    <button ion-button full (click)="getImage()">Upload Image</button>
     <ion-card>
-        <img [src]="base64Image"/>
+        <img [hidden]="!base64Image" [src]="base64Image"/>
     </ion-card>
     <ion-fab bottom right>
         <button ion-fab (click)="takePhoto()"><ion-icon name="camera"></ion-icon></button>
