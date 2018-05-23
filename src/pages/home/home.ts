@@ -86,7 +86,17 @@ export class HomePage {
                 console.log(json);
                 loader.dismiss();
                 this.presentToast("Image uploaded successfully");
-                this.showAlert(json.images[0].classifiers[0].classes[0].class+" with score of : "+ json.images[0].classifiers[0].classes[0].score);
+                var find_monument = false;
+                for (var i=0; i<json.images[0].classifiers[0].classes.length; i++) {
+                    if (json.images[0].classifiers[0].classes[i].class == 'building'|| json.images[0].classifiers[0].classes[i].class == 'arch'|| json.images[0].classifiers[0].classes[i].class == 'bridge')
+                        find_monument = true;
+                }
+                if (find_monument) {
+                    this.showAlert(json.images[0].classifiers[1].classes[0].class+" with score of : "+ json.images[0].classifiers[0].classes[0].score);
+                } else {
+                    this.showAlert("Watson hasn't found any monument on this picture...");
+                }
+                //this.showAlert(json.images[0].classifiers[0].classes[0].class+" with score of : "+ json.images[0].classifiers[0].classes[0].score); //display the higher result
             }, (err) => {
                 console.log(err);
                 loader.dismiss();

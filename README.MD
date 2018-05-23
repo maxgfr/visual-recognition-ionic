@@ -12,8 +12,9 @@
     npm install -g ionic cordova
     git clone https://github.com/maxgfr/visual-recognition-ionic.git
     cd visual-recognition-ionic
-    ionic platform add ios
-    ionic emulate ios
+    ionic platform add android
+    ionic cordova build android
+    ionic cordova run android
 ```
 
 ## Global Architecture
