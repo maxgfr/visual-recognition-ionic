@@ -88,7 +88,7 @@ export class HomePage {
                 this.presentToast("Image uploaded successfully");
                 var find_monument = false;
                 for (var i=0; i<json.images[0].classifiers[0].classes.length; i++) {
-                    if (json.images[0].classifiers[0].classes[i].class == 'building'|| json.images[0].classifiers[0].classes[i].class == 'arch'|| json.images[0].classifiers[0].classes[i].class == 'bridge')
+                    if (json.images[0].classifiers[0].classes[i].class == 'building'|| json.images[0].classifiers[0].classes[i].class == 'arch' || json.images[0].classifiers[0].classes[i].class == 'tower'|| json.images[0].classifiers[0].classes[i].class == 'bridge')
                         find_monument = true;
                 }
                 if (find_monument) {
