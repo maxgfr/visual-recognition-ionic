@@ -88,14 +88,20 @@ export class HomePage {
                 this.presentToast("Image uploaded successfully");
                 var find_monument = false;
                 var model = 0;
-                for (var i=0; i<json.images[0].classifiers[0].classes.length; i++) {
-                    if (json.images[0].classifiers[0].classes[i].class == 'pontalexandre3.zip' || json.images[0].classifiers[0].classes[i].class == 'Arc_Carroussel') {
-                        find_monument = true;
-                        model = i;
+                var classifier = 0;
+                for (var j=0; j<json.images[0].classifiers.length; j++) {
+                    for (var i=0; i<json.images[0].classifiers[j].classes.length; i++) {
+                        if (json.images[0].classifiers[j].classes[i].class == 'building' || json.images[0].classifiers[j].classes[i].class == 'arch' || json.images[0].classifiers[j].classes[i].class == 'tower'|| json.images[0].classifiers[j].classes[i].class == 'bridge') {
+                            find_monument = true;
+                        }
+                        if (json.images[0].classifiers[0].classes[i].class == 'pontalexandre3.zip' || json.images[0].classifiers[0].classes[i].class == 'Arc_Carroussel') {
+                            classifier = j;
+                            model = i;
+                        }
                     }
                 }
                 if (find_monument) {
-                    this.showAlert(json.images[0].classifiers[model].classes[0].class+" with score of : "+ json.images[0].classifiers[0].classes[0].score);
+                    this.showAlert(json.images[0].classifiers[0].classes[0].class+ " with score of : " + json.images[0].classifiers[0].classes[0].score);
                 } else {
                     this.showAlert("Watson hasn't found any monument on this picture...");
                 }
