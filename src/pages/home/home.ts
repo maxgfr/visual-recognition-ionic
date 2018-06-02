@@ -94,14 +94,14 @@ export class HomePage {
                         if (json.images[0].classifiers[j].classes[i].class == 'building' || json.images[0].classifiers[j].classes[i].class == 'arch' || json.images[0].classifiers[j].classes[i].class == 'tower'|| json.images[0].classifiers[j].classes[i].class == 'bridge') {
                             find_monument = true;
                         }
-                        if (json.images[0].classifiers[0].classes[i].class == 'pontalexandre3.zip' || json.images[0].classifiers[0].classes[i].class == 'Arc_Carroussel') {
+                        if (json.images[0].classifiers[j].classes[i].class == 'pontalexandre3.zip' || json.images[0].classifiers[j].classes[i].class == 'Arc_Carroussel') {
                             classifier = j;
                             model = i;
                         }
                     }
                 }
                 if (find_monument) {
-                    this.showAlert(json.images[0].classifiers[0].classes[0].class+ " with score of : " + json.images[0].classifiers[0].classes[0].score);
+                    this.showAlert(json.images[0].classifiers[classifier].classes[0].class+ " with score of : " + json.images[0].classifiers[classifier].classes[0].score);
                 } else {
                     this.showAlert("Watson hasn't found any monument on this picture...");
                 }
